@@ -7,14 +7,12 @@ import os
 
 from .common import *
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = False
 
 ALLOWED_HOSTS = [
-    '.lensplease.com', # Allow domain and subdomains
-    '.lensplease.com.', # Also allow FQDN and subdomains
-    '.shutterclub.co',
-    '.shutterclub.co.',
+    '.bierfeldt.me', # Allow domain and subdomains
+    '.bierfeldt.me.', # Also allow FQDN and subdomains,
     ]
     
 DATABASES = {
