@@ -1,0 +1,46 @@
+.main-nav {
+    width: auto;
+    text-align: center;
+    border-bottom: dashed 1px;
+}
+
+#header-title {
+    text-align: center;
+}
+
+.joke-text {
+    font-size: 1.25em;
+}
+
+@media (min-width: 400px) {
+    
+    #nav-bar {
+        width: 100%;
+    }
+    #nav-bar li {
+        display: block;
+        width: 100%;
+    }
+    #nav-bar li a {
+        width: 100%;
+        margin: 0 auto;
+    }
+    
+}
+
+@media (min-width: 550px) {
+    
+    #nav-bar ul {
+        list-style: none;
+        margin: 2px auto;
+    }
+    #nav-bar li {
+        display: inline;
+        width: auto;
+        text-align: center;
+    }
+    #nav-bar li a {
+        width: auto;
+    }
+    
+}

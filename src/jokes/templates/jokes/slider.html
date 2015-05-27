@@ -1,0 +1,16 @@
+<div class="row">
+	<script>
+	$(function() {
+		$( "#{{ id }}-range-max" ).labeledslider({
+			max: {{ max }},
+			value: {{ value }},
+			tickInterval: {{ step }},
+			slide: function( event, ui ) {
+				$( "#{{ id }}" ).val( ui.value );
+			}
+		});
+	});
+	</script>
+	<input type="hidden" id="{{ id }}" name="{{ name }}" value="{{ value }}" />
+	<div id="{{ id }}-range-max" class="slider"></div>
+</div>

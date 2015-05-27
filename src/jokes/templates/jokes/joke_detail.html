@@ -1,0 +1,20 @@
+{% extends "jokes/jokes_base.html" %}
+{% load staticfiles %}
+
+{% block css %}
+{{ block.super }}
+{% endblock %}
+
+{% block content %}
+	<hr />
+	<div class="joke-text">{{ joke|linebreaks }}</div>
+	<hr />
+	<div class="row">
+		<div class="six columns">
+			<p>Average Humor Score: {{ joke.get_avg_humor_score|floatformat:"-2" }}</p>
+		</div>
+		<div class="six columns">
+			<p>Average Taboo Score: {{ joke.get_avg_taboo_score|floatformat:"-2" }}</p>
+		</div>
+	</div>
+{% endblock %}

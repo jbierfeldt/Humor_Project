@@ -1,0 +1,14 @@
+{% extends "jokes/jokes_base.html" %}
+{% load staticfiles %}
+
+{% block css %}
+{{ block.super }}
+{% endblock %}
+
+{% block content %}
+    <h3>Submit a Joke</h3>
+    <form action="" method="post">{% csrf_token %}
+    	{{ form.as_p }}
+    <input class="button-primary" type="submit" value="Submit" />
+    </form>
+{% endblock %}

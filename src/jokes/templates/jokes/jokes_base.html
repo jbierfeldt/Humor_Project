@@ -1,0 +1,63 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>Joke Site</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="{% static 'jokes/css/normalize.css' %}">
+  <link rel="stylesheet" href="{% static 'jokes/css/skeleton.css' %}">
+  <link rel="stylesheet" href="{% static 'jokes/css/custom.css' %}">
+  <link rel="stylesheet" href="{% static 'jokes/css/jquery-ui.min.css' %}">
+  <link rel="stylesheet" href="{% static 'jokes/css/ext-jquery-ui.min.css' %}">
+
+  <!-- JAVASCRIPT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <script src="{% static 'jokes/js/jquery-1.11.3.min.js' %}"></script>
+  <script src="{% static 'jokes/js/jquery-ui.min.js' %}"></script>
+  <script src="{% static 'jokes/js/ext-jquery-ui.min.js' %}"></script>
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="{% static 'jokes/images/favicon.png' %}">
+
+</head>
+<body>
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <header class="container">
+    <h1 id="header-title">Joke Website</h1>
+    <nav class="main-nav row">
+        <ul id="nav-bar">
+            <li><a class="button" href="{% url 'joke_create' %}">Submit Joke</a></li>
+            <li><a class="button" href="{% url 'home' %}">View Jokes</a></li>
+            <li><a class="button" href="{% url 'survey' %}">Take Survey</a></li>
+        </ul>
+    </nav>
+  </header>
+  <div class="container">
+  {% block content %}
+  {% endblock %}
+  </div>
+
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+</html>
+
