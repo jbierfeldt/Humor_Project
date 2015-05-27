@@ -21,7 +21,6 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'jokes',
-    'django_extensions'
 )
 
 MIDDLEWARE_CLASSES = (
