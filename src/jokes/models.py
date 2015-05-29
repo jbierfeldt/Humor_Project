@@ -48,6 +48,9 @@ class JokeRating(TimeStampBaseModel):
     humor_score = models.PositiveSmallIntegerField(blank=True, null=True)
     taboo_score = models.PositiveSmallIntegerField(blank=True, null=True)
 
+    gender = models.PositiveSmallIntegerField(blank=True, null=True)
+    age = models.PositiveSmallIntegerField(blank=True, null=True)
+
     def get_absolute_url(self):
         return reverse('joke_detail', args=[self.joke.id])
 

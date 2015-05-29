@@ -8,13 +8,15 @@ from jokes.models import Joke, JokeRating
 from jokes.widgets import SliderWidget
 
 class JokeRatingForm(ModelForm):
+	CHOICES = (('0', 'Male',), ('1', 'Female',), ('2', 'Other',))
 	joke = forms.ModelChoiceField(queryset=Joke.objects.all(),
             widget=forms.HiddenInput())
-	punchline = forms.CharField(label="What is the Punchline?", required=False)
+	gender = forms.ChoiceField(widget=forms.RadioSelect, choices=CHOICES)
+	age = forms.IntegerField(required=False)
 
 	class Meta:
 		model = JokeRating
-		fields = ['joke', 'humor_score', 'taboo_score']
+		fields = ['joke', 'humor_score', 'taboo_score', 'gender', 'age']
 		labels = {
 			'humor_score' : 'How funny is this Joke?',
 			'taboo_score' : 'How offensive is this Joke?',

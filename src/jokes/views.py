@@ -82,8 +82,17 @@ class RandomizedStudy(CreateView):
 
     def get_initial(self):
         self.joke = self.get_object()
-        return { 'joke': self.joke }
+        self.gender = self.request.session.get('gender', None)
+        self.age = self.request.session.get('age', None)
+        return { 'joke': self.joke, 'age': self.age, 'gender': self.gender }
 
+    def form_valid(self, form):
+        print form.data
+        if form.data['gender']:
+            self.request.session['gender'] = form.data['gender']
+            self.request.session['age'] = form.data['age']
+
+        return super(RandomizedStudy, self).form_valid(form)
 
     def get_context_data(self, **kwargs):
         # # Call the base implementation first to get a context
@@ -91,6 +100,7 @@ class RandomizedStudy(CreateView):
         CHOICES_SETS = [['humor_score', 'taboo_score'], ['humor_score'], ['taboo_score']]
         context['field_list'] = random.choice(CHOICES_SETS)
         context['joke'] = self.joke
+        # self.request.session['fav_color'] = 'blue'
         return context
 
     def get_success_url(self): 
