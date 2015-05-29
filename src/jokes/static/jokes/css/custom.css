@@ -53,6 +53,9 @@ footer a:link {
 
 @media (min-width: 550px) {
     
+    #nav-bar {
+        display: inherit;
+    }
     #nav-bar ul {
         list-style: none;
         margin: 2px auto;
