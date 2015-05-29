@@ -88,7 +88,7 @@ class RandomizedStudy(CreateView):
     def get_context_data(self, **kwargs):
         # # Call the base implementation first to get a context
         context = super(RandomizedStudy, self).get_context_data(**kwargs)
-        CHOICES_SETS = [['humor_score', 'taboo_score', 'punchline'], ['humor_score', 'punchline'], ['taboo_score', 'punchline']]
+        CHOICES_SETS = [['humor_score', 'taboo_score'], ['humor_score'], ['taboo_score']]
         context['field_list'] = random.choice(CHOICES_SETS)
         context['joke'] = self.joke
         return context
