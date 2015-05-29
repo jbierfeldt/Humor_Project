@@ -51,6 +51,16 @@ footer a:link {
     
 }
 
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    #nav-bar{
+        display: none;
+    }
+}
+
 @media (min-width: 550px) {
     
     #nav-bar {
