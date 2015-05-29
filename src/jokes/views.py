@@ -73,7 +73,6 @@ class RandomizedStudy(CreateView):
     model = JokeRating
     form_class = JokeRatingForm
     template_name_suffix = '_create'
-    print "hey"
 
     def get_object(self, queryset=None):
         random_idx = random.randint(0, Joke.objects.count() - 1)
@@ -81,14 +80,16 @@ class RandomizedStudy(CreateView):
         return obj
 
     def get_initial(self):
-        return { 'joke': self.get_object() }
+        self.joke = self.get_object()
+        return { 'joke': self.joke }
+
 
     def get_context_data(self, **kwargs):
         # # Call the base implementation first to get a context
         context = super(RandomizedStudy, self).get_context_data(**kwargs)
         CHOICES_SETS = [['humor_score', 'taboo_score', 'punchline'], ['humor_score', 'punchline'], ['taboo_score', 'punchline']]
         context['field_list'] = random.choice(CHOICES_SETS)
-        context['joke'] = self.get_object()
+        context['joke'] = self.joke
         return context
 
     def get_success_url(self): 
