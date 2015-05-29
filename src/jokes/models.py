@@ -11,6 +11,7 @@ class TimeStampBaseModel(models.Model):
 
 class Joke(TimeStampBaseModel):
     text = models.TextField()
+    approved = models.BooleanField()
 
     def get_avg_humor_score(self):
         score = float(0)
@@ -22,6 +23,7 @@ class Joke(TimeStampBaseModel):
             return score/len(ratings_set)
         else:
             return 0
+    get_avg_humor_score.short_description = 'AVG Humor'
 
     def get_avg_taboo_score(self):
         score = float(0)
@@ -33,6 +35,7 @@ class Joke(TimeStampBaseModel):
             return score/len(ratings_set)
         else:
             return 0
+    get_avg_taboo_score.short_description = 'AVG Taboo'
 
     def get_absolute_url(self):
         return reverse('joke_detail', args=[self.id])

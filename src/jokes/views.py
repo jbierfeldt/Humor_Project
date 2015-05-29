@@ -75,8 +75,9 @@ class RandomizedStudy(CreateView):
     template_name_suffix = '_create'
 
     def get_object(self, queryset=None):
-        random_idx = random.randint(0, Joke.objects.count() - 1)
-        obj = Joke.objects.all()[random_idx]
+        jokes = Joke.objects.filter(approved=True) #only get approved jokes
+        random_idx = random.randint(0, jokes.count() - 1)
+        obj = jokes[random_idx]
         return obj
 
     def get_initial(self):
