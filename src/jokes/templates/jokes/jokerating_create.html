@@ -10,6 +10,11 @@
 	<div class="joke-text">{{ joke|linebreaks }}</div>
 	<hr />
     <form action="" method="post">{% csrf_token %}
+        {% if not request.session.gender %}
+        Since this is your first time filling out this survey, please fill out a little demographic information:
+            {{ form.gender.label_tag }} {{ form.gender }}
+            {{ form.age.label_tag }} {{ form.age }}
+        {% endif %}
         {% for field in form.visible_fields %}
             {% if field.name in field_list %}
                 <div class="fieldWrapper">
