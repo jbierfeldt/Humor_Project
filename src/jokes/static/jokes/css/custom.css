@@ -1,3 +1,19 @@
+ul {
+    list-style: none;
+}
+
+footer {
+    border-top: dashed 1px;
+    font-size: 0.75em;
+    opacity: 0.5;
+    float: right;
+}
+
+footer a:link {
+    text-decoration: none;
+    color: red;
+}
+
 .main-nav {
     width: auto;
     text-align: center;
@@ -12,18 +28,25 @@
     font-size: 1.25em;
 }
 
+.demographic-survey {
+    border: dashed 1px;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.demographic-survey ul li {
+    margin-bottom: 0;
+}
+
+.demographic-survey ul li {
+    display: inline-block;
+    padding: 10px;
+}
+
 @media (min-width: 400px) {
     
     #nav-bar {
-        width: 100%;
-    }
-    #nav-bar li {
-        display: block;
-        width: 100%;
-    }
-    #nav-bar li a {
-        width: 100%;
-        margin: 0 auto;
+        display: none;
     }
     
 }
