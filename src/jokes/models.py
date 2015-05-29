@@ -55,6 +55,6 @@ class JokeRating(TimeStampBaseModel):
         return reverse('joke_detail', args=[self.joke.id])
 
     def __unicode__(self):
-        return "{0} - h:{1} t:{2}".format(self.joke, self.humor_score, self.taboo_score)
+        return str(self.joke)
 
 # Create your models here.
