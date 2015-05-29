@@ -11,7 +11,7 @@ class JokeRatingForm(ModelForm):
 	CHOICES = (('0', 'Male',), ('1', 'Female',), ('2', 'Other',))
 	joke = forms.ModelChoiceField(queryset=Joke.objects.all(),
             widget=forms.HiddenInput())
-	gender = forms.ChoiceField(widget=forms.RadioSelect, choices=CHOICES)
+	gender = forms.TypedChoiceField(widget=forms.RadioSelect, choices=CHOICES, required=False, empty_value=None)
 	age = forms.IntegerField(required=False)
 
 	class Meta:

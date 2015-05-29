@@ -11,7 +11,7 @@ class TimeStampBaseModel(models.Model):
 
 class Joke(TimeStampBaseModel):
     text = models.TextField()
-    approved = models.BooleanField()
+    approved = models.BooleanField(default=False)
 
     def get_avg_humor_score(self):
         score = float(0)

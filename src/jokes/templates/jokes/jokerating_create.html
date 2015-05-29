@@ -13,8 +13,8 @@
         {% if not request.session.gender %}
         <div class="demographic-survey">
         <p><b>Since this is your first time filling out this survey, please fill out a little demographic information:</b></p>
-            {{ form.gender.label_tag }} {{ form.gender }}
-            {{ form.age.label_tag }} {{ form.age }}
+            {{ form.gender.errors }} {{ form.gender.label_tag }} {{ form.gender }}
+            {{ form.gender.errors }} {{ form.age.label_tag }} {{ form.age }}
         </div>
         {% endif %}
         {% for field in form.visible_fields %}
