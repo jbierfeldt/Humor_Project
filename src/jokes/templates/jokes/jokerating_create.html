@@ -12,6 +12,7 @@
     <form action="" method="post">{% csrf_token %}
         {% if not request.session.gender %}
         <div class="demographic-survey">
+        <p><b>This survey is infinite, and you may see the same joke multiple times (although possibly with different questions). Feel free to leave the survey at any point.</b></p>
         <p><b>Since this is your first time filling out this survey, please fill out a little demographic information:</b></p>
             {{ form.gender.errors }} {{ form.gender.label_tag }} {{ form.gender }}
             {{ form.gender.errors }} {{ form.age.label_tag }} {{ form.age }}

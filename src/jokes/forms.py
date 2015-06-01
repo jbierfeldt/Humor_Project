@@ -16,12 +16,14 @@ class JokeRatingForm(ModelForm):
 
 	class Meta:
 		model = JokeRating
-		fields = ['joke', 'humor_score', 'taboo_score', 'gender', 'age']
+		fields = ['joke', 'humor_score', 'taboo_score', 'taboo_rating_score', 'gender', 'age']
 		labels = {
-			'humor_score' : 'How funny is this Joke?',
-			'taboo_score' : 'How offensive is this Joke?',
+			'humor_score' : 'How FUNNY is this Joke?',
+			'taboo_score' : 'How OFFENSIVE is this Joke?',
+			'taboo_rating_score' : 'How TABOO is this subject?'
 		}
 		widgets = {
 			'humor_score' : SliderWidget(attrs={'min_value':0, 'max_value':5, 'step': 1}),
-			'taboo_score' : SliderWidget(attrs={'min_value':0, 'max_value':5, 'step': 1})
+			'taboo_score' : SliderWidget(attrs={'min_value':0, 'max_value':5, 'step': 1}),
+			'taboo_rating_score' : SliderWidget(attrs={'min_value':0, 'max_value':5, 'step': 1})
 		}

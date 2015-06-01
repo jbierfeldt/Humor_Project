@@ -47,6 +47,7 @@ class JokeRating(TimeStampBaseModel):
     joke = models.ForeignKey('Joke')
     humor_score = models.PositiveSmallIntegerField(blank=True, null=True)
     taboo_score = models.PositiveSmallIntegerField(blank=True, null=True)
+    taboo_rating_score = models.PositiveSmallIntegerField(blank=True, null=True)
 
     gender = models.PositiveSmallIntegerField(blank=True, null=True)
     age = models.PositiveSmallIntegerField(blank=True, null=True)
@@ -55,6 +56,6 @@ class JokeRating(TimeStampBaseModel):
         return reverse('joke_detail', args=[self.joke.id])
 
     def __unicode__(self):
-        return str(self.joke)
+        return str(self.joke_id)
 
 # Create your models here.
