@@ -35,7 +35,19 @@ class Joke(TimeStampBaseModel):
             return score/len(ratings_set)
         else:
             return 0
-    get_avg_taboo_score.short_description = 'AVG Taboo'
+    get_avg_taboo_score.short_description = 'AVG Offensive'
+
+    def get_avg_taboo_rating_score(self):
+        score = float(0)
+        ratings_set = self.jokerating_set.exclude(taboo_rating_score__isnull=True)
+        ratings_set_length = len(ratings_set)
+        for rating in ratings_set:
+            score += rating.taboo_rating_score
+        if ratings_set_length > 0:
+            return score/len(ratings_set)
+        else:
+            return 0
+    get_avg_taboo_rating_score.short_description = 'AVG Taboo'
 
     def get_absolute_url(self):
         return reverse('joke_detail', args=[self.id])
